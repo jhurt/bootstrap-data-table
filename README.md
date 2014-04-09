@@ -102,13 +102,6 @@ Below are the basic options for creating a new datatable.
 [Optional] This is a function that will be called before the table is rendered to the page. This allows you to dynamically manipulate the columns and data before the table is displayed.
 
 
-
-
-
-
-
-
-
 Column Options
 --------------
 
@@ -130,3 +123,22 @@ Below are the options when setting up the columns for a new datatable.
 [Optional] The initial state of the column for the table. This can be toggled if the `toggleColumns` option is enabled for the DataTable.
 + **css**: {}
 [Optional] Object properties for css values for each column cell. This uses the .css() method of a jQuery element so format the object as such.
+
+
+Column Action Options (added 4/9/2014 by jhurt)
+--------------
++ **action**: {}
+[Optional] Name of button in cell (iff it's an action cell)
++ **actionClass**: {}
+[Optional] CSS class for cells with actions so that event binding can work.
++ **actionDataField**: {}
+[Optional] The key name of the data field on which will lookup the value to pass in actionCallback
++ **actionCallback**: {}
+[Optional] Function that gets called when an action button is clicked.
+
+Example action column:
+{
+    title: "playback", sortable: false, action: "play", actionClass: "play_action", actionDataField: "id", actionCallback: function(game_id) {
+        //do something
+    }
+}
